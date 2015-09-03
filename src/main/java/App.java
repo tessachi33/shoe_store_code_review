@@ -37,37 +37,37 @@ public class App {
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
 
-  // get("/store/:id", (request, response) -> {
-  //     HashMap<String, Object> model = new HashMap<String, Object>();
-  //     model.put("store", Store.find(Integer.parseInt(request.params(":id"))));
-  //     model.put("template", "templates/index.vtl");
-  //     return new ModelAndView(model, layout);
-  //   }, new VelocityTemplateEngine());
-  //
-  // post("/store/:id/delete", (request, response) -> {
-  //   HashMap<String, Object> model = new HashMap<String, Object>();
-  //   Store store = Store.find(Integer.parseInt(request.params(":id")));
-  //   Store.delete();
-  //   model.put("stores", Store.all());
-  //   model.put("template", "templates/index.vtl");
-  //   return new ModelAndView(model, layout);
-  // }, new VelocityTemplateEngine());
-  //
-  // get("/store/:id/update", (request, response) -> {
-  //   HashMap<String, Object> model = new HashMap<String, Object>();
-  //   model.put("store", Store.find(Integer.parseInt(request.params(":id"))));
-  //   model.put("template", "templates/storeformupdate.vtl");
-  //   return new ModelAndView(model, layout);
-  // }, new VelocityTemplateEngine());
-  //
-  // post("/store_update/:id", (request, response) -> {
-  //   HashMap<String, Object> model = new HashMap<String, Object>();
-  //   Store store = Store.find(Integer.parseInt(request.params(":id")));
-  //   String name = request.queryParams("sName");
-  //   Store.update();
-  //   model.put("template", "templates/index.vtl");
-  //   model.put("stores", Store.all());
-  //   return new ModelAndView(model, layout);
-  // }, new VelocityTemplateEngine());
+  get("/store/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("store", Store.find(Integer.parseInt(request.params(":id"))));
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+  post("/store/:id/delete", (request, response) -> {
+    HashMap<String, Object> model = new HashMap<String, Object>();
+    Store store = Store.find(Integer.parseInt(request.params(":id")));
+    store.delete();
+    model.put("stores", Store.all());
+    model.put("template", "templates/index.vtl");
+    return new ModelAndView(model, layout);
+  }, new VelocityTemplateEngine());
+
+  get("/store/:id/update", (request, response) -> {
+    HashMap<String, Object> model = new HashMap<String, Object>();
+    model.put("store", Store.find(Integer.parseInt(request.params(":id"))));
+    model.put("template", "templates/storeformupdate.vtl");
+    return new ModelAndView(model, layout);
+  }, new VelocityTemplateEngine());
+
+  post("/store_update/:id", (request, response) -> {
+    HashMap<String, Object> model = new HashMap<String, Object>();
+    Store store = Store.find(Integer.parseInt(request.params(":id")));
+    String name = request.queryParams("sName");
+    store.update(name);
+    model.put("template", "templates/index.vtl");
+    model.put("stores", Store.all());
+    return new ModelAndView(model, layout);
+  }, new VelocityTemplateEngine());
    }
 }
