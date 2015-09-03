@@ -67,6 +67,7 @@ public class Brand {
     }
   }
 
+  //do I need this if I am only doing CRUD for Store??
   public void delete() {
     try(Connection con = DB.sql2o.open()) {
       String deleteQuery = "DELETE FROM brands WHERE id = :id;";

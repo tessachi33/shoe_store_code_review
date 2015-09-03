@@ -43,4 +43,17 @@ public class StoreTest {
     savedStore.update("Tatyana");
     assertTrue(Store.all().get(0).getName().equals("Tatyana"));
   }
+  @Test
+ public void delete_deletesAllStoresAndLists() {
+   Store myStore = new Store("math", "133");
+   myStore.save();
+
+   Student myStudent = new Student("teresa", "june 2015");
+   myStudent.save();
+
+   myStore.addStudent(myStudent);
+   myStore.delete();
+   assertEquals(myStore.getStudents().size(), 0);
+ }
+
 }

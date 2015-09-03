@@ -18,13 +18,13 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-  //   get("/new", (request, response) -> {
-  //     Map<String, Object> model = new HashMap<String, Object>();
-  //     model.put("brand", Brand.all());
-  //     model.put("template", "templates/storeform.vtl");
-  //     return new ModelAndView(model, layout);
-  //   }, new VelocityTemplateEngine());
-  //
+    get("/new", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("brand", Brand.all());
+      model.put("template", "templates/storeform.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
   // post("/store_form", (request, response) -> {
   //   Map<String, Object> model = new HashMap<String, Object>();
   //   model.put("template", "templates/index.vtl");
