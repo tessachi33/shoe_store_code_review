@@ -1,0 +1,16 @@
+<h1>Big feet stores list!</h1>
+
+<p>Add a new store:</p>
+
+<form action="/stores" method="post">
+  <label for="sName">Big feet store name</label>
+  <input id="sName" sName="sName" type="text" placeholder="IE: Clairissa's Closet">
+
+  <button type="submit">Add big feet store</button>
+</form>
+
+#foreach ($store in $stores)
+  <li><a href="/stores/$store.getId()">$store.getName()</a></li>
+#end
+
+<p><a href='/'>Big feet Home</a></p>

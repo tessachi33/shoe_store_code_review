@@ -17,4 +17,4 @@ public class DatabaseRule extends ExternalResource {
       con.createQuery(deleteStoresBrandsQuery).executeUpdate();
     }
   }
-}
+ }

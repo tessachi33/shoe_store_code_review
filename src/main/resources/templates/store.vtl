@@ -1,0 +1,55 @@
+<h1>$store.getName()</h1>
+
+#if($store.getBrands())
+  <p>Here are the brands for this big feet store:</p>
+  <ul>
+    #foreach($brand in $store.getBrands())
+      <li>$brand.getName()<li>
+    #end
+  </ul>
+#end
+
+<h4>Add a big feet brand to this big feet store:</h4>
+
+<form action='/add_brands' method='post'>
+    <input id="store_id" name="store_id" type="hidden" value="$store.getId()">
+    <label for="brand_id">Select a brand</label>
+    <select id='brand_id' name='brand_id' type='text'>
+      #foreach($brand in $allBrands)
+        <option value="$brand.getId()"> $brand.getName() </option>
+      #end
+    </select>
+    <button type='submit'>Add brand</button>
+</form>
+
+<p><a href="/stores/$store.getId()/edit">Edit this big feet store</a></p>
+
+<p><a href='/'>Home</a></p>
+templates/brand.vtl
+<h1>$brand.getName()</h1>
+
+#if($brand.getStores())
+  <p>Here are the big feet stores for this brand:</p>
+  <ul>
+    #foreach($store in $brand.getStores())
+      <li>$store.getName()<li>
+    #end
+  </ul>
+#end
+
+<h4>Add a store to this big feet shoe brand:</h4>
+
+<form action='/add_stores' method='post'>
+    <input id="brand_id" name="brand_id" type="hidden" value="$brand.getId()">
+    <label for="store_id">Select a store</label>
+    <select id='store_id' name='store_id' type='text'>
+      #foreach($store in $allStores)
+        <option value="$store.getId()"> $store.getName() </option>
+      #end
+    </select>
+    <button type='submit'>Add big feet store</button>
+</form>
+
+<p><a href="/brands/$brand.getId()/edit">Edit this big feet shoe brand</a></p>
+
+<p><a href='/'>Big feet Home</a></p>

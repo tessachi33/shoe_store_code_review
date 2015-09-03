@@ -45,15 +45,15 @@ public class StoreTest {
   }
   @Test
  public void delete_deletesAllStoresAndLists() {
-   Store newStore = new Store("math", "133");
+   Store newStore = new Store("the mall");
    newStore.save();
 
-   Student myStudent = new Student("teresa", "june 2015");
-   myStudent.save();
+   Brand newBrand = new Brand("pegs");
+   newBrand.save();
 
-   newStore.addStudent(myStudent);
+   newStore.addBrand(newBrand);
    newStore.delete();
-   assertEquals(newStore.getStudents().size(), 0);
+   assertEquals(newStore.getBrands().size(), 0);
  }
 
 }
