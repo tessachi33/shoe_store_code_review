@@ -21,13 +21,13 @@ public class StoreTest {
     assertTrue(firstStore.equals(secondStore));
   }
 
-  // @Test
-  // public void save_savesIntoDatabase_true() {
-  //   Store myStore = new Store("The mall");
-  //   myStore.save();
-  //   assertTrue(Store.all().get(0).equals(myStore));
-  // }
-  //
+  @Test
+  public void save_savesIntoDatabase_true() {
+    Store myStore = new Store("The mall");
+    myStore.save();
+    assertTrue(Store.all().get(0).equals(myStore));
+  }
+
   // @Test
   // public void find_findStoreInDatabase_true() {
   //   Store myStore = new Store("The mall");
