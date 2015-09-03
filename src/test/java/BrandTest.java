@@ -19,15 +19,15 @@ public class BrandTest {
     Brand secondBrand = new Brand("B.A.I.T.");
     assertTrue(firstBrand.equals(secondBrand));
   }
-  // 
-  // @Test
-  // public void save_savesObjectIntoDatabase() {
-  //   Brand myBrand = new Brand("B.A.I.T.");
-  //   myBrand.save();
-  //   Brand savedBrand = Brand.all().get(0);
-  //   assertTrue(savedBrand.equals(myBrand));
-  // }
-  //
+
+  @Test
+  public void save_savesObjectIntoDatabase() {
+    Brand myBrand = new Brand("B.A.I.T.");
+    myBrand.save();
+    Brand savedBrand = Brand.all().get(0);
+    assertTrue(savedBrand.equals(myBrand));
+  }
+  
   // @Test
   // public void save_assignsIdToObject() {
   //   Brand myBrand = new Brand("B.A.I.T.");
