@@ -43,4 +43,11 @@ public class BrandTest {
     Brand savedBrand = Brand.find(myBrand.getId());
     assertTrue(myBrand.equals(savedBrand));
   }
+  @Test
+  public void update_updateBrandInfo() {
+    Brand savedBrand = new Brand("B.A.I.T.");
+    savedBrand.save();
+    savedBrand.update("Crocs");
+    assertTrue(Brand.all().get(0).getName().equals("Crocs"));
+  }
 }
