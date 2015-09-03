@@ -23,17 +23,17 @@ public class StoreTest {
 
   @Test
   public void save_savesIntoDatabase_true() {
-    Store myStore = new Store("The mall");
-    myStore.save();
-    assertTrue(Store.all().get(0).equals(myStore));
+    Store newStore = new Store("The mall");
+    newStore.save();
+    assertTrue(Store.all().get(0).equals(newStore));
   }
 
   @Test
   public void find_findStoreInDatabase_true() {
-    Store myStore = new Store("The mall");
-    myStore.save();
-    Store savedStore = Store.find(myStore.getId());
-    assertTrue(myStore.equals(savedStore));
+    Store newStore = new Store("The mall");
+    newStore.save();
+    Store savedStore = Store.find(newStore.getId());
+    assertTrue(newStore.equals(savedStore));
   }
 
   @Test
@@ -45,15 +45,15 @@ public class StoreTest {
   }
   @Test
  public void delete_deletesAllStoresAndLists() {
-   Store myStore = new Store("math", "133");
-   myStore.save();
+   Store newStore = new Store("math", "133");
+   newStore.save();
 
    Student myStudent = new Student("teresa", "june 2015");
    myStudent.save();
 
-   myStore.addStudent(myStudent);
-   myStore.delete();
-   assertEquals(myStore.getStudents().size(), 0);
+   newStore.addStudent(myStudent);
+   newStore.delete();
+   assertEquals(newStore.getStudents().size(), 0);
  }
 
 }

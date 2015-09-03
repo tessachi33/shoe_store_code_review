@@ -25,18 +25,18 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-  // post("/store_form", (request, response) -> {
-  //   Map<String, Object> model = new HashMap<String, Object>();
-  //   model.put("template", "templates/index.vtl");
-  //   String name = request.queryParams("sName");
-  //   int brand_id = Integer.parseInt(request.queryParams("brand_id"));
-  //   Store myStore = new Store();
-  //   myStore.save();
-  //   model.put("stores", Store.all());
-  //   model.put("brand", Brand.all());
-  //   return new ModelAndView(model, layout);
-  // }, new VelocityTemplateEngine());
-  //
+  post("/store_form", (request, response) -> {
+    Map<String, Object> model = new HashMap<String, Object>();
+    model.put("template", "templates/index.vtl");
+    String name = request.queryParams("sName");
+    int brand_id = Integer.parseInt(request.queryParams("brand_id"));
+    Store newStore = new Store(name);
+    newStore.save();
+    model.put("stores", Store.all());
+    model.put("brand", Brand.all());
+    return new ModelAndView(model, layout);
+  }, new VelocityTemplateEngine());
+
   // get("/store/:id", (request, response) -> {
   //     HashMap<String, Object> model = new HashMap<String, Object>();
   //     model.put("store", Store.find(Integer.parseInt(request.params(":id"))));
