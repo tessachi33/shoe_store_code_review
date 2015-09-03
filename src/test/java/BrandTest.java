@@ -27,15 +27,15 @@ public class BrandTest {
     Brand savedBrand = Brand.all().get(0);
     assertTrue(savedBrand.equals(myBrand));
   }
+
+  @Test
+  public void save_assignsIdToObject() {
+    Brand myBrand = new Brand("B.A.I.T.");
+    myBrand.save();
+    Brand savedBrand = Brand.all().get(0);
+    assertEquals(myBrand.getId(), savedBrand.getId());
+  }
   
-  // @Test
-  // public void save_assignsIdToObject() {
-  //   Brand myBrand = new Brand("B.A.I.T.");
-  //   myBrand.save();
-  //   Brand savedBrand = Brand.all().get(0);
-  //   assertEquals(myBrand.getId(), savedBrand.getId());
-  // }
-  //
   // @Test
   // public void find_findsBrandInDatabase_true() {
   //   Brand myBrand = new Brand("B.A.I.T.");
