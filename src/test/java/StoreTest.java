@@ -14,13 +14,13 @@ public class StoreTest {
     assertEquals(Store.all().size(), 0);
   }
 
-  // @Test
-  // public void equals_returnsTrueIfNamesAretheSame() {
-  //   Store firstStore = new Store("The mall");
-  //   Store secondStore = new Store("The mall");
-  //   assertTrue(firstStore.equals(secondStore));
-  // }
-  //
+  @Test
+  public void equals_returnsTrueIfNamesAretheSame() {
+    Store firstStore = new Store("The mall");
+    Store secondStore = new Store("The mall");
+    assertTrue(firstStore.equals(secondStore));
+  }
+
   // @Test
   // public void save_savesIntoDatabase_true() {
   //   Store myStore = new Store("The mall");
