@@ -10,23 +10,23 @@ import org.sql2o.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AppTest extends FluentTest{
-  public WebDriver webDriver = new HtmlUnitDriver();
-  public WebDriver getDefaultDriver(){
-    return webDriver;
-  }
+// public class AppTest extends FluentTest{
+//   public WebDriver webDriver = new HtmlUnitDriver();
+//   public WebDriver getDefaultDriver(){
+//     return webDriver;
+//   }
+//
+//   @ClassRule
+//   public static ServerRule server = new ServerRule();
+//
+//   @Rule
+//   public DatabaseRule database = new DatabaseRule();
+//
+//   @Test
+//   public void rootTest() {
+//     goTo("http://localhost:4567/");
+//     assertThat(pageSource()).contains("Shoe Store");
+//   }
+//
 
-  @ClassRule
-  public static ServerRule server = new ServerRule();
-
-  @Rule
-  public DatabaseRule database = new DatabaseRule();
-
-  @Test
-  public void rootTest() {
-    goTo("http://localhost:4567/");
-    assertThat(pageSource()).contains("Shoe Store");
-  }
-
-
-}
+//}

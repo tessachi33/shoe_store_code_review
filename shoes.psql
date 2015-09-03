@@ -35,7 +35,7 @@ SET default_with_oids = false;
 
 CREATE TABLE brands (
     id integer NOT NULL,
-    shoe character varying
+    name character varying
 );
 
 
@@ -154,7 +154,7 @@ ALTER TABLE ONLY stores_brands ALTER COLUMN id SET DEFAULT nextval('stores_brand
 -- Data for Name: brands; Type: TABLE DATA; Schema: public; Owner: Tessa
 --
 
-COPY brands (id, shoe) FROM stdin;
+COPY brands (id, name) FROM stdin;
 \.
 
 
