@@ -28,11 +28,11 @@ public class StoreTest {
     assertTrue(Store.all().get(0).equals(myStore));
   }
 
-  // @Test
-  // public void find_findStoreInDatabase_true() {
-  //   Store myStore = new Store("The mall");
-  //   myStore.save();
-  //   Store savedStore = Store.find(myStore.getId());
-  //   assertTrue(myStore.equals(savedStore));
-  // }
+  @Test
+  public void find_findStoreInDatabase_true() {
+    Store myStore = new Store("The mall");
+    myStore.save();
+    Store savedStore = Store.find(myStore.getId());
+    assertTrue(myStore.equals(savedStore));
+  }
 }
