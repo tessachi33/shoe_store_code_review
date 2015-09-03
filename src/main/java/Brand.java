@@ -75,4 +75,47 @@ public class Brand {
         .executeUpdate();
     }
   }
+
+  public void addStore(Store store) {
+  try(Connection con = DB.sql2o.open()) {
+    String sql = "INSERT INTO stores_brands (Store_id, brand_id) VALUES (:store_id, :brand_id)";
+    con.createQuery(sql)
+      .addParameter("Store_id", this.getId())
+      .addParameter("brand_id", this.getId())
+      .executeUpdate();
+  }
+}
+
+public List<Store> getStores() {
+  try(Connection con = DB.sql2o.open()){
+    String sql = "SELECT Stores.* FROM brands JOIN stores_brands ON (brands.id = stores_brands.brand_id) JOIN stores ON (stores_brands.Store_id = stores.id) where brands.id= :brand_id";
+       List<Store> Stores = con.createQuery(sql)
+      .addParameter("brand_id", this.getId())
+      .executeAndFetch(Store.class);
+    return Stores;
+  }
+}
+public void delete() {
+  try(Connection con = DB.sql2o.open()) {
+    String deleteQuery = "DELETE FROM brands WHERE id = :id;";
+      con.createQuery(deleteQuery)
+        .addParameter("id", id)
+        .executeUpdate();
+
+    String joinDeleteQuery = "DELETE FROM stores_brands WHERE brand_id = :brandId";
+      con.createQuery(joinDeleteQuery)
+        .addParameter("brandId", this.getId())
+        .executeUpdate();
+  }
+}
+
+public void update(String name) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE brands SET (name) = (:name) WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("name", name)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
 }

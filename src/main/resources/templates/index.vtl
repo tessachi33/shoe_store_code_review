@@ -1,4 +1,4 @@
-<head>
+<!-- <head>
     <title>Shoe Store</title>
 </head>
 <body>
@@ -7,4 +7,45 @@
     <h3><a href="/categories">Add or view a store</a></h3>
     <h3><a href="/tasks">Add or view a shoe</a></h3>
 
-</body>
+</body> -->
+
+
+<h1>Shoe Store</h1>
+
+<h3>View All stores</h3>
+
+<table class="table table-striped">
+  <tr>
+    <td>Name</td>
+    <td>
+      Brand
+    </td>
+
+  </tr>
+#foreach($store in $stores)
+<tr><td>$store.getName()</td>
+    <td>$store.getBrandName</td>
+
+
+<td><form action="/store/$store.getId()/delete" method="post">
+    <button type="submit" class="btn btn-primary">
+    <i class="glyphicon glyphicon-trash"></i></span>
+</form></td>
+
+<td><form action="/store/$store.getId()/update" method="get">
+    <button type="submit" class="btn btn-primary">
+    <i class="glyphicon glyphicon-pencil"></i></span>
+</form></td>
+</tr>
+
+#end
+</table>
+
+<h3>View All Brands</h3>
+#foreach($brands in $Brands)
+<p>$brands.getName()</p>
+#end
+
+<h3><a href="/new">Add a new store</a><h3>
+
+</form>
