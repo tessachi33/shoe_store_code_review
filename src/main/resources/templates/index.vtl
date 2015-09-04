@@ -1,14 +1,4 @@
 
-<!-- <head>
-    <title>big feet</title>
-</head>
-<body>
-    <h1>My favorite big feet shoe stores!</h1>
-    <h3><a href="/stores">Add or view a store</a></h3>
-    <h3><a href="/brands">Add or view a brand</a></h3>
-
-</body> -->
-
 <h1>My favorite big feet shoe stores!</h1>
 
 <h3>All big feet shoe stores</h3>
@@ -16,11 +6,12 @@
 <table class="table table-striped">
   <tr>
     <td>Store Name</td>
+    <td>Brand Name</td>
 
   </tr>
 #foreach($store in $stores)
 <tr><td>$store.getName()</td>
-
+    <td>$brand.getName()</td>
 
 <td><form action="/stores/$store.getId()/delete" method="post">
     <button type="submit" class="btn btn-primary">
@@ -35,7 +26,14 @@
 
 #end
 
+<h3><a href="/stores">Add a store</a></h3>
+
+
 </table>
+
+<br>
+<hr>
+<br>
 
 <h1>My favorite big feet shoe brands!</h1>
 
@@ -44,11 +42,12 @@
 <table class="table table-striped">
   <tr>
     <td>Brand Name</td>
+    <td>Store Name
 
   </tr>
 #foreach($brand in $brands)
 <tr><td>$brand.getName()</td>
-
+    <td>$store.getName()</td>
 
 <td><form action="/brands/$brand.getId()/delete" method="post">
     <button type="submit" class="btn btn-primary">
@@ -63,8 +62,8 @@
 
 #end
 
-</table>
-
-<h3><a href="/stores">Add a store</a></h3>
 <h3><a href="/brands">Add a brand</a></h3>
+
+
+</table>
 </form>

@@ -3,7 +3,14 @@
 <form action="/stores" method="post">
   <label for="sName">Big feet store name</label>
   <input id="sName" sName="sName" type="text" placeholder="IE: Clairissa's Closet">
-
+  <form action='/add_brands' method='post'>
+      <input id="store_id" name="store_id" type="hidden" value="$store.getId()">
+      <label for="brand_id">Select a brand</label>
+      <select id='brand_id' name='brand_id' type='text'>
+        #foreach($brand in $allBrands)
+          <option value="$brand.getId()"> $brand.getName() </option>
+        #end
+      </select>
   <button type="submit">Add big feet store</button>
 </form>
 
@@ -11,4 +18,4 @@
   <li><a href="/stores/$store.getId()">$store.getName()</a></li>
 #end -->
 
-<p><a href='/'>Big feet Home</a></p>
+<h3><a href='/'>Big feet Home</a></h3>

@@ -121,7 +121,7 @@ get("/stores/:id/update", (request, response) -> {
         Store store = Store.find(Integer.parseInt(request.params(":id")));
         String name = request.queryParams("name");
         store.update(name);
-        response.redirect("/stores/" + store.getId());
+        response.redirect("/" + store.getId()); //Hope to redirect update to index table as well
         return null;
       });
 
@@ -149,7 +149,7 @@ get("/stores/:id/update", (request, response) -> {
         Brand brand = Brand.find(brandId);
         String description = request.queryParams("description");
         brand.update(description);
-        response.redirect("/brands/" + brandId);
+        response.redirect("/" + brandId); //Hope to redirect update to index table as well
         return null;
       });
 
