@@ -49,7 +49,7 @@ public class Brand {
 
   public static Brand find(int id) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM Brands where id=:id";
+      String sql = "SELECT * FROM brands where id=:id";
       Brand Brand = con.createQuery(sql)
         .addParameter("id", id)
         .executeAndFetchFirst(Brand.class);

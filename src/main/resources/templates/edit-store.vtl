@@ -1,0 +1,16 @@
+<h1>Big feet store list!</h1>
+
+<p>Update your big feet store:</p>
+
+<form action="/stores/$store.getId()/update" method="post">
+  <label for="sName">Store name</label>
+  <input id="sName" name="sName" type="text" placeholder="IE: Peggy's Big Feet">
+
+  <button type="submit">Update big feet store</button>
+</form>
+
+#foreach ($store in $stores)
+  <li><a href="/stores/$store.getId()">$store.getName()</a></li>
+#end
+
+<p><a href='/'>Big feet home</a></p>

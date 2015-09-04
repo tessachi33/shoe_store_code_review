@@ -1,46 +1,70 @@
 
-<head>
+<!-- <head>
     <title>big feet</title>
 </head>
 <body>
     <h1>My favorite big feet shoe stores!</h1>
-
     <h3><a href="/stores">Add or view a store</a></h3>
     <h3><a href="/brands">Add or view a brand</a></h3>
 
-</body>
+</body> -->
 
-<!-- <h1>My favorite big feet shoe stores!</h1>
+<h1>My favorite big feet shoe stores!</h1>
 
 <h3>All big feet shoe stores</h3>
 
 <table class="table table-striped">
   <tr>
-    <td>Name</td>
-    <td>
-      Brand
-    </td>
+    <td>Store Name</td>
 
   </tr>
 #foreach($store in $stores)
 <tr><td>$store.getName()</td>
-    <!-- <td>$store.getBrandName</td> -->
 
-<!--
-<td><form action="/store/$store.getId()/delete" method="post">
+
+<td><form action="/stores/$store.getId()/delete" method="post">
     <button type="submit" class="btn btn-primary">
     <i class="glyphicon glyphicon-trash"></i></span>
 </form></td>
 
-<td><form action="/store/$store.getId()/update" method="get">
+<td><form action="/stores/$store.getId()/update" method="get">
     <button type="submit" class="btn btn-primary">
     <i class="glyphicon glyphicon-pencil"></i></span>
 </form></td>
 </tr>
 
 #end
+
 </table>
 
-<h3><a href="/new">Add a new big feet shoe store</a><h3>
+<h1>My favorite big feet shoe brands!</h1>
 
-</form> -->
+<h3>All big feet shoe brands</h3>
+
+<table class="table table-striped">
+  <tr>
+    <td>Brand Name</td>
+
+  </tr>
+#foreach($brand in $brands)
+<tr><td>$brand.getName()</td>
+
+
+<td><form action="/brands/$brand.getId()/delete" method="post">
+    <button type="submit" class="btn btn-primary">
+    <i class="glyphicon glyphicon-trash"></i></span>
+</form></td>
+
+<td><form action="/brands/$brand.getId()/update" method="get">
+    <button type="submit" class="btn btn-primary">
+    <i class="glyphicon glyphicon-pencil"></i></span>
+</form></td>
+</tr>
+
+#end
+
+</table>
+
+<h3><a href="/stores">Add a store</a></h3>
+<h3><a href="/brands">Add a brand</a></h3>
+</form>

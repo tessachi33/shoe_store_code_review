@@ -37,9 +37,9 @@ public class Store {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO stores(name) VALUES (:name)";
+      String sql = "INSERT INTO stores (name) VALUES (:name)";
       this.id = (int) con.createQuery(sql, true)
-        .addParameter("name", this.name)
+        .addParameter("name", name)
         .executeUpdate()
         .getKey();
     }
@@ -47,7 +47,7 @@ public class Store {
 
   public static Store find(int id) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM Stores where id=:id";
+      String sql = "SELECT * FROM stores where id=:id";
       Store Store = con.createQuery(sql)
         .addParameter("id", id)
         .executeAndFetchFirst(Store.class);

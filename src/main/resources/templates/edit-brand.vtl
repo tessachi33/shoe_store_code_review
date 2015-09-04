@@ -1,16 +1,16 @@
 <h1>Big feet brand list!</h1>
 
-<p>Add a new big feet brand:</p>
+<p>Edit you big feet brand:</p>
 
-<form action="/brands" method="post">
+<form action="/brands/$brand.getId()/update" method="post">
   <label for="sName">Brand name</label>
   <input id="sName" name="sName" type="text" placeholder="IE: Peggy's Big Feet">
 
-  <button type="submit">Add another big feet brand</button>
+  <button type="submit">Update big feet brand</button>
 </form>
 
-<!-- #foreach ($brand in $brands)
+#foreach ($brand in $brands)
   <li><a href="/brands/$brand.getId()">$brand.getName()</a></li>
-#end -->
+#end
 
 <p><a href='/'>Big feet home</a></p>
